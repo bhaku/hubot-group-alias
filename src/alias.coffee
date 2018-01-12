@@ -95,7 +95,7 @@ expand = (message, groups, user) ->
     # Filter inviduals from their own messages.
     if filterName
       members = members.replace('@' + filterName, '').replace(/\s+/g, ' ')
-    reg = new RegExp('[:(]+' + alias + '[:)]+|@' + alias, 'i')
+    reg = new RegExp('[:(]+' + alias + '[:)]+|@' + alias + '(?!\\w)', 'i')
     message = message.replace(reg, members)
   return message
 
