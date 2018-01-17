@@ -71,9 +71,6 @@ However, Group Alias includes the ability to use custom emoji in order to allow 
 The script matches the following forms of the alias `dev`:
 
 * @dev
-* (dev)
-* :dev:
-* ::dev::
 
 ## Usage
 For example:

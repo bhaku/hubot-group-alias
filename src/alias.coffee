@@ -95,7 +95,7 @@ expand = (message, groups, user) ->
     # Filter inviduals from their own messages.
     if filterName
       members = members.replace('@' + filterName, '').replace(/\s+/g, ' ')
-    reg = new RegExp('[:(]+' + alias + '[:)]+|@' + alias + '(?!\\w)', 'i')
+    reg = new RegExp('@' + alias + '(?!\\w)', 'i')
     message = message.replace(reg, members)
   return message
 
@@ -107,8 +107,7 @@ buildRegExp = ->
     aliases = _.keys(buildGroupObject()).join('|')
   # The last group is a set of stop conditions (word boundaries or end of line)
   atRE = '(?:@(' + aliases + ')(?:\\b[^.]|$))'
-  emojiRE = '(?:[(:])(' + aliases + ')(?:[:)])'
-  return new RegExp(atRE + '|' + emojiRE, 'i')
+  return new RegExp(atRE, 'i')
 
 module.exports = (robot) ->
   if !config
